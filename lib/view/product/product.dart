@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:price_checker/model/hive/product/product.dart';
+import 'package:price_checker/view/product/components/product_detail.dart';
 import 'package:price_checker/view/product/components/product_tile.dart';
 
 import 'components/category_list.dart';
@@ -103,13 +104,19 @@ class _ProductScreenState extends State<ProductScreen> {
               height: 10,
             ),
             Expanded(
-                child: GridView.builder(
-              physics: const BouncingScrollPhysics(),
-              itemCount: products.length,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, childAspectRatio: 0.75),
-              itemBuilder: (context, index) => ProductTile(
-                product: products[index],
+                child: Scrollbar(
+              child: GridView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemCount: products.length,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, childAspectRatio: 0.75),
+                itemBuilder: (context, index) => ProductTile(
+                  product: products[index],
+                  func: () => Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>
+                        ProductDetail(product: products[index]),
+                  )),
+                ),
               ),
             ))
           ],

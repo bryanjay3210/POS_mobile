@@ -4,9 +4,11 @@ import 'package:price_checker/model/hive/product/product.dart';
 
 class ProductTile extends StatefulWidget {
   final Product product;
+  final VoidCallback func;
   const ProductTile({
     super.key,
     required this.product,
+    required this.func,
   });
 
   @override
@@ -33,9 +35,15 @@ class _ProductTileState extends State<ProductTile> {
           children: [
             Expanded(
                 flex: 5,
-                child: Image.network(
-                  widget.product.image,
-                  fit: BoxFit.fill,
+                child: GestureDetector(
+                  onTap: widget.func,
+                  child: Hero(
+                    tag: widget.product.id,
+                    child: Image.network(
+                      widget.product.image,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
                 )),
             Expanded(
                 flex: 3,

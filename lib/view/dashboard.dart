@@ -39,7 +39,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
       bottomNavigationBar: CustomNavigationBar(
           items: [
             CustomNavigationBarItem(
-              icon: const Icon(Icons.shopping_cart),
+              icon: const Icon(Icons.list_sharp),
               title: const Text('Product'),
             ),
             CustomNavigationBarItem(

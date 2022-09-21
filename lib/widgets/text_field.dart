@@ -10,7 +10,7 @@ class OutlinedTextField extends StatefulWidget {
 class _OutlinedTextFieldState extends State<OutlinedTextField> {
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return const TextField(
       decoration: InputDecoration(
         border: OutlineInputBorder(),
         label: Text('Username'),
