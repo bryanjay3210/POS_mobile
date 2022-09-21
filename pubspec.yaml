@@ -37,6 +37,7 @@ dependencies:
   custom_navigation_bar: ^0.8.2
   hive:
   hive_flutter:
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   flutter_test:

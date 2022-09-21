@@ -1,8 +1,6 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:price_checker/view/price_checker/price_checker.dart';
 import 'package:price_checker/view/product/product.dart';
-import 'package:price_checker/view/register/register.dart';
 import 'package:price_checker/view/settings/settings.dart';
 
 import 'login/login.dart';
@@ -25,27 +23,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
+        physics: const NeverScrollableScrollPhysics(),
         controller: ctrl,
-        onPageChanged: (index){
+        onPageChanged: (index) {
           setState(() {
             _currentIndex = index;
           });
         },
-        children: const[
-          PriceCheckerScreen(),
-          LoginScreen(),
-          RegisterScreen(),
+        children: const [
           ProductScreen(),
+          LoginScreen(),
           SettingsScreen(),
         ],
       ),
       bottomNavigationBar: CustomNavigationBar(
-        backgroundColor: const Color(0xFF3C3F41),
           items: [
             CustomNavigationBarItem(
-              icon: const Icon(Icons.home),
-              selectedTitle: const Text('Home'),
-              title: const Text('Home'),
+              icon: const Icon(Icons.shopping_cart),
+              title: const Text('Product'),
             ),
             CustomNavigationBarItem(
               icon: const Icon(Icons.account_circle),
@@ -53,30 +48,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
               title: const Text('Login'),
             ),
             CustomNavigationBarItem(
-              icon: const Icon(Icons.how_to_reg),
-              selectedTitle: const Text('Register'),
-              title: const Text('Register'),
-            ),
-            CustomNavigationBarItem(
-              icon: const Icon(Icons.shopping_cart),
-              title: const Text('Product'),
-            ),
-            CustomNavigationBarItem(
               icon: const Icon(Icons.settings),
               title: const Text('Settings'),
             ),
           ],
           currentIndex: _currentIndex,
-          onTap: (index){
-            setState((){
+          onTap: (index) {
+            setState(() {
               _currentIndex = index;
               onChangePage(index);
             });
-          }
-      ),
+          }),
     );
   }
-  void onChangePage(int index){
+
+  void onChangePage(int index) {
     ctrl.jumpToPage(index);
   }
 }
