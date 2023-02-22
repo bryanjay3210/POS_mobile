@@ -35,9 +35,22 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   custom_navigation_bar: ^0.8.2
-  hive:
-  hive_flutter:
   google_fonts: ^3.0.1
+  firebase_auth: ^4.2.5
+  cloud_firestore: ^4.3.1
+  logger: ^1.1.0
+  equatable: ^2.0.5
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  change_app_package_name: ^1.1.0
+  fluttertoast: ^8.1.2
+  loading_animation_widget: ^1.2.0+4
+  shared_preferences: ^2.0.17
+  uuid: ^3.0.7
+  flutter_slidable: ^2.0.0
+  image_picker: ^0.8.6+1
+  image_cropper: ^3.0.1
+  freezed_annotation: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -49,9 +62,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
-  hive_generator: ^1.1.3
   build_runner: ^2.1.11
-
+  freezed: ^2.3.2
+  json_serializable: ^6.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

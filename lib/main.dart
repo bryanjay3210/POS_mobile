@@ -1,10 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:price_checker/view/dashboard.dart';
+import 'package:price_checker/presentation/view/dashboard.dart';
+import 'package:price_checker/routes/routes.dart';
 
 void main() async {
-  await Hive.initFlutter();
-  await Hive.openBox('account');
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         )),
       ),
       debugShowCheckedModeBanner: false,
+      routes: routes(),
       home: const DashboardScreen(),
     );
   }
